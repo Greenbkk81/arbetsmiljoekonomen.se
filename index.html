@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Arbetsmiljöekonomen</title>
+  <meta name="description" content="Välkommen! Jag hjälper er att göra arbetsmiljön till er bästa investering">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/familjen-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face {
+      font-family: "Instrument Serif";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("fonts/instrument-serif.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Instrument Serif";
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url("fonts/instrument-serif-italic.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Familjen Grotesk";
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url("fonts/familjen-grotesk.woff2") format("woff2");
+    }
+
+    :root {
+      --navy: #2b3a80;
+      --pink: #d785b3;
+      --ground: #f3f2ef;
+      --sheet: #f7f6f3;
+      --line: rgba(43, 58, 128, 0.22);
+      --pad: clamp(1.25rem, 4vw, 3.5rem);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--ground);
+      color: var(--navy);
+      font-family: "Familjen Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      font-weight: 400;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; height: auto; }
+    a { color: inherit; }
+    :focus-visible {
+      outline: 2px solid var(--navy);
+      outline-offset: 3px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-copy, .portrait { animation: none; }
+    }
+
+    .sheet {
+      width: min(1120px, calc(100% - var(--pad) * 2));
+      margin: 0 auto;
+      padding-bottom: clamp(4rem, 10vw, 7.5rem);
+    }
+
+    .mast {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1.5rem;
+      padding: clamp(1.4rem, 3vw, 2.1rem) 0 1.15rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .wordmark {
+      font-family: "Instrument Serif", "Iowan Old Style", Palatino, serif;
+      font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-decoration: none;
+    }
+    .mast a.jump {
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+    }
+    .mast a.jump:hover { text-decoration: underline; text-underline-offset: 0.18em; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 400px;
+      column-gap: clamp(2.5rem, 6vw, 5.25rem);
+      align-items: end;
+      padding-top: clamp(2.2rem, 5vw, 4.2rem);
+    }
+    .hero-copy { min-width: 0; padding-bottom: 0.35rem; }
+    h1 {
+      margin: 0;
+      font-family: "Instrument Serif", "Iowan Old Style", Palatino, serif;
+      font-weight: 400;
+      font-size: clamp(2.55rem, 4.7vw, 4.35rem);
+      line-height: 0.96;
+      letter-spacing: -0.025em;
+      text-wrap: pretty;
+    }
+    .lede {
+      margin: 1.45rem 0 0;
+      max-width: 36rem;
+      font-size: 1.125rem;
+      line-height: 1.55;
+    }
+
+    .portrait {
+      margin: 0;
+      position: relative;
+      width: 400px;
+      justify-self: end;
+    }
+    .portrait img {
+      display: block;
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      object-position: center 18%;
+    }
+    .portrait::before {
+      content: "";
+      position: absolute;
+      left: -1.7rem;
+      top: 14%;
+      width: 7px;
+      height: 72%;
+      background: var(--pink);
+    }
+
+    .prose {
+      margin-top: clamp(3rem, 6vw, 4.25rem);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: clamp(2rem, 4vw, 3.5rem);
+      align-items: start;
+    }
+    .prose p { margin: 0; }
+
+    .perspectives {
+      margin-top: clamp(4.2rem, 8vw, 6.5rem);
+    }
+    .perspectives h2,
+    .spread h2,
+    .contact h2 {
+      margin: 0;
+      font-family: "Instrument Serif", "Iowan Old Style", Palatino, serif;
+      font-weight: 400;
+      font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      text-wrap: pretty;
+    }
+    .intro {
+      margin: 0.9rem 0 0;
+      max-width: 36rem;
+    }
+
+    .ledger {
+      list-style: none;
+      margin: 1.85rem 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--sheet);
+      border: 1px solid var(--line);
+    }
+    .ledger li {
+      margin: 0;
+      padding: 1.7rem 1.7rem 1.85rem;
+      display: grid;
+      grid-template-columns: 4.5rem minmax(0, 1fr);
+      column-gap: 0.85rem;
+      align-items: start;
+    }
+    .ledger li:nth-child(1),
+    .ledger li:nth-child(2) {
+      border-bottom: 1px solid var(--line);
+    }
+    .ledger li:nth-child(odd) {
+      border-right: 1px solid var(--line);
+    }
+    .ledger h3 {
+      margin: 0.15rem 0 0;
+      font-family: "Instrument Serif", Palatino, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.65rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .num {
+      font-family: "Instrument Serif", Palatino, serif;
+      font-style: italic;
+      font-size: 1.65rem;
+      line-height: 1;
+      color: rgba(43, 58, 128, 0.38);
+    }
+    .ledger p {
+      grid-column: 2;
+      margin: 0.55rem 0 0;
+      font-size: 1.02rem;
+      line-height: 1.5;
+    }
+
+    .spread {
+      margin-top: clamp(4.2rem, 8vw, 6.5rem);
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.78fr) minmax(0, 1.35fr);
+      column-gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+    .spread p { margin: 0 0 1.1rem; }
+    .spread p:last-child { margin-bottom: 0; }
+    strong { font-weight: 600; }
+
+    .contact {
+      margin-top: clamp(4.2rem, 9vw, 7rem);
+      padding-top: clamp(2rem, 4vw, 3rem);
+      border-top: 1px solid var(--line);
+      max-width: 40rem;
+    }
+    .contact h2 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+    }
+    .contact p {
+      margin: 1rem 0 0;
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      line-height: 1.45;
+      text-wrap: pretty;
+    }
+    .close {
+      margin-top: clamp(3.5rem, 8vw, 5.5rem);
+      font-family: "Instrument Serif", Palatino, serif;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        row-gap: 2.35rem;
+      }
+      .portrait {
+        order: -1;
+        width: min(100%, 400px);
+        justify-self: start;
+      }
+      .portrait img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+      }
+      .portrait::before {
+        left: 0;
+        top: auto;
+        bottom: -1.15rem;
+        width: 4.5rem;
+        height: 7px;
+      }
+      .hero-copy { padding-top: 0.4rem; }
+      .ledger { grid-template-columns: 1fr; }
+      .ledger li:nth-child(odd) { border-right: 0; }
+      .ledger li:nth-child(1),
+      .ledger li:nth-child(2),
+      .ledger li:nth-child(3) { border-bottom: 1px solid var(--line); }
+      .prose { grid-template-columns: 1fr; row-gap: 1.15rem; }
+      .spread { grid-template-columns: 1fr; row-gap: 1.1rem; }
+    }
+
+    @media (max-width: 520px) {
+      .mast { align-items: flex-start; }
+      .ledger li {
+        grid-template-columns: 2.6rem minmax(0, 1fr);
+        padding: 1.35rem 1.15rem 1.45rem;
+      }
+      .ledger h3, .num { font-size: 1.45rem; }
+      h1 { font-size: 2.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header class="mast">
+      <a class="wordmark" href="/">Arbetsmiljöekonomen</a>
+      <a class="jump" href="#kontakt">Kontakta mig</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>Välkommen! Jag hjälper er att göra arbetsmiljön till er bästa investering</h1>
+        <p class="lede">Har ni genomfört riskbedömningar inom ergonomi och upptäckt höga risker? Då finns jag här för att hjälpa er ta nästa steg – från identifierade risker till trygga, hållbara och lönsamma lösningar.</p>
+      </div>
+      <figure class="portrait">
+        <img src="portrait.png" width="400" height="400" alt="Porträtt av Åsa Gustavsson">
+      </figure>
+    </section>
+
+    <div class="prose">
+      <p>När ergonomin inte fungerar märks det snabbt – först i kroppen hos medarbetarna, men över tid även i sjukfrånvaro, kvalitet och arbetsglädje. Samtidigt kan det vara svårt att veta vilka åtgärder som faktiskt gör störst skillnad och vad de faktiskt ger tillbaka.</p>
+      <p>Jag brinner för att hjälpa företag att skapa hållbara arbetsplatser där människor både mår bra och presterar sitt bästa. Tillsammans utvärderar vi era åtgärdsförslag och räknar på vilka investeringar som ger bäst effekt – för både människorna och för er sista rad.</p>
+    </div>
+
+    <section class="perspectives" aria-labelledby="perspektiv">
+      <h2 id="perspektiv">Min helhetssyn: Fyra perspektiv på varje åtgärd</h2>
+      <p class="intro">När vi utvärderar en insats tittar vi inte bara på en sak i taget, utan väger samman helheten:</p>
+      <ol class="ledger">
+        <li>
+          <span class="num" aria-hidden="true">01</span>
+          <h3>Ergonomi</h3>
+          <p>– Vi minskar skadlig belastning och skapar sköna, säkrare arbetsstationer där kroppen håller.</p>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">02</span>
+          <h3>Ekonomi</h3>
+          <p>– Vi räknar på den faktiska lönsamheten (ROI) och ser hur förebyggande insatser sänker sjukfrånvarokostnaderna.</p>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">03</span>
+          <h3>Kvalitet</h3>
+          <p>– Vi förebygger fel och avvikelser som lätt uppstår när man är trött, har ont eller arbetar obekvämt.</p>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">04</span>
+          <h3>Produktivitet</h3>
+          <p>– Vi skapar smidiga flöden där det blir lättare och roligare att göra ett bra jobb.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="spread" aria-labelledby="bakgrund">
+      <h2 id="bakgrund">Min bakgrund: När ekonomi möter fysioterapi</h2>
+      <div>
+        <p>Att förena ekonomi med en djup förståelse för människan och kroppen är ovanligt, men för mig är det helt naturligt.</p>
+        <p>Med min bakgrund – en <strong>kandidatexamen</strong> i företagsekonomi och en <strong>kandidatexamen</strong> i fysioterapi (samt flera fördjupningskurser i ergonomi) – känner jag mig lika hemma i kalkylbladet som på verkstadsgolvet eller kontoret. Det gör att jag kan översätta ergonomiska behov till tydliga ekonomiska fakta som ledningen förstår, och ekonomiska ramar till lösningar som medarbetarna trivs med.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt" aria-labelledby="kontakt-rubrik">
+      <h2 id="kontakt-rubrik">Kontakta mig</h2>
+      <p>Vill ni få ett tydligare ekonomiskt underlag inför en ergonomisk investering? Kontakta mig så pratar vi om era behov.</p>
+    </section>
+
+    <p class="close">Arbetsmiljöekonomen</p>
+  </div>
+</body>
+</html>
