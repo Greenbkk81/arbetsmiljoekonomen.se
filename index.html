@@ -86,12 +86,26 @@
       line-height: 1;
       text-decoration: none;
     }
-    .mast a.jump {
+    .mast-side {
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 0.35rem 1.35rem;
+      min-width: 0;
+    }
+    .mast a.jump,
+    a.mail {
       font-size: 0.95rem;
       letter-spacing: 0.01em;
       text-decoration: none;
     }
-    .mast a.jump:hover { text-decoration: underline; text-underline-offset: 0.18em; }
+    .mast a.jump:hover,
+    a.mail:hover { text-decoration: underline; text-underline-offset: 0.18em; }
+    a.mail:empty { display: none; }
+    .contact a.mail:not(:empty) {
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+    }
 
     .hero {
       display: grid;
@@ -249,6 +263,8 @@
     }
 
     @media (max-width: 860px) {
+      .mast { flex-wrap: wrap; row-gap: 0.75rem; }
+      .mast-side { width: 100%; justify-content: flex-start; }
       .hero {
         grid-template-columns: 1fr;
         row-gap: 2.35rem;
@@ -295,7 +311,10 @@
   <div class="sheet">
     <header class="mast">
       <a class="wordmark" href="/">Arbetsmiljöekonomen</a>
-      <a class="jump" href="#kontakt">Kontakta mig</a>
+      <div class="mast-side">
+        <a class="mail" data-mail></a>
+        <a class="jump" href="#kontakt">Kontakta mig</a>
+      </div>
     </header>
 
     <section class="hero">
@@ -351,9 +370,22 @@
     <section class="contact" id="kontakt" aria-labelledby="kontakt-rubrik">
       <h2 id="kontakt-rubrik">Kontakta mig</h2>
       <p>Vill ni få ett tydligare ekonomiskt underlag inför en ergonomisk investering? Kontakta mig så pratar vi om era behov.</p>
+      <p><a class="mail" data-mail></a></p>
     </section>
 
     <p class="close">Arbetsmiljöekonomen</p>
   </div>
+  <script>
+    (function () {
+      var name = ["asa", "gustavsson"].join(".");
+      var host = ["arbetsmiljoekonomen", "se"].join(".");
+      var address = name + String.fromCharCode(64) + host;
+      var links = document.querySelectorAll("a[data-mail]");
+      for (var i = 0; i < links.length; i++) {
+        links[i].href = "mailto:" + address;
+        links[i].textContent = address;
+      }
+    })();
+  </script>
 </body>
 </html>
