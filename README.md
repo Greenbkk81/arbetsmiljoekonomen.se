@@ -1,5 +1,5 @@
 # Arbetsmiljöekonomen
 
-Förhandsvisning av en landningssida. Texten är Åsa Gustavssons version från 16 oktober 2026, med kontaktstycket hon bad om 18 oktober.
+Landningssida för Åsa Gustavsson, Arbetsmiljöekonomen. Live på https://www.arbetsmiljoekonomen.se sedan 21 oktober 2026.
 
-Domänen arbetsmiljoekonomen.se pekas inte om från den här förhandsvisningen.
+Vercel-projektet arbetsmiljoekonomen är kopplat till det här repot. Push till `main` deployas automatiskt till produktion.
